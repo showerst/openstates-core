@@ -143,6 +143,23 @@ schema = {
             },
             "type": "array",
         },
+        "citations": {
+            "items": {
+                "properties": {
+                    "publication": {"type": "string", "minLength": 1},
+                    "citation": {"type": "string", "minLength": 1},
+                    "effective": fuzzy_datetime,
+                    "expiration": fuzzy_datetime,
+                    "type": {
+                        "enum": ["proposed", "chaptered", "final", "other"],
+                        "type": "string",
+                    },
+                    "url": {"type": "string", "format": "uri"},
+                },
+                "type": "object",
+            },
+            "type": "array",
+        },
         "versions": versions,
         "documents": documents,
         "sources": sources,
